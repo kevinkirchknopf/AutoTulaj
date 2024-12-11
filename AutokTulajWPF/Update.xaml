@@ -1,0 +1,29 @@
+﻿<Window x:Class="AutokTulajWPF.Update"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.microsoft.com/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutokTulajWPF"
+    
+        Title="Update" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dgCars" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="5,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding id}" IsReadOnly="True" />
+                <DataGridTextColumn Header="First Name" Binding="{Binding first_name}" />
+                <DataGridTextColumn Header="Last Name" Binding="{Binding last_name}" />
+                <DataGridTextColumn Header="Email" Binding="{Binding email}" />
+                <DataGridTextColumn Header="Gender" Binding="{Binding gender}" />
+                <DataGridTextColumn Header="Country" Binding="{Binding Country}" />
+                <DataGridTextColumn Header="Language" Binding="{Binding language}" />
+                <DataGridTemplateColumn Header="Mentes">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnEdit" Content="Edit" Click="btnEdit_Click"  />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

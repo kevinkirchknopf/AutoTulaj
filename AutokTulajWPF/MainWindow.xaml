@@ -1,0 +1,70 @@
+﻿<Window x:Class="AutokTulajWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.microsoft.com/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutokTulajWPF"
+        
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+          
+        </Grid.RowDefinitions>
+        <ListBox Grid.Column="0" x:Name="lbCimek" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <StackPanel Margin="10,0,0,0">
+                            <TextBlock FontWeight="Bold">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} {1}">
+                                        <Binding Path="first_name" />
+                                        <Binding Path="last_name" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Margin="10">
+            <StackPanel Orientation="Horizontal" Margin="5,0">
+                <TextBlock Text="Email: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding email}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,0">
+                <TextBlock Text="Gender: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding gender}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,0">
+                <TextBlock Text="Country: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding country}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,0">
+                <TextBlock Text="Language: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding language}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,0">
+                <TextBlock Text="Picture: " FontWeight="Bold"/>
+                <Image Source="{Binding picture}" Width="250" Height="250"/>
+            </StackPanel>
+
+            <Button x:Name="showcarsbutton" Width="500" Height="80" Click="showcarsbutton_Click">Autók</Button>
+
+           
+        </StackPanel>
+        <StackPanel x:Name="" Grid.Column="0">
+            <Button x:Name="Szerk" Click="Szerk_Click">Szerkesztés</Button>
+        </StackPanel>      
+    </Grid>
+</Window>
